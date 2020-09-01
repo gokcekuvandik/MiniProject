@@ -1,0 +1,9 @@
+C:\Users\gokce\source\repos\MiniProject\MiniProject.Data\bin\Debug\MiniProject.Data.dll
+C:\Users\gokce\source\repos\MiniProject\MiniProject.Data\bin\Debug\MiniProject.Data.pdb
+C:\Users\gokce\source\repos\MiniProject\MiniProject.Data\obj\Debug\MiniProject.Data.csprojAssemblyReference.cache
+C:\Users\gokce\source\repos\MiniProject\MiniProject.Data\obj\Debug\MiniProject.Data.csproj.CoreCompileInputs.cache
+C:\Users\gokce\source\repos\MiniProject\MiniProject.Data\obj\Debug\MiniProject.Data.dll
+C:\Users\gokce\source\repos\MiniProject\MiniProject.Data\obj\Debug\MiniProject.Data.pdb
+C:\Users\gokce\source\repos\MiniProject\MiniProject.Data\bin\Debug\RestSharp.dll
+C:\Users\gokce\source\repos\MiniProject\MiniProject.Data\bin\Debug\RestSharp.xml
+C:\Users\gokce\source\repos\MiniProject\MiniProject.Data\obj\Debug\MiniProject.Data.csproj.CopyComplete

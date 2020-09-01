@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MiniProject.Data.Models.Comment>
+
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Body)
+            </th>
+        </tr>
+        @foreach (var commet in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => commet.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => commet.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => commet.Body)
+                </td>
+            </tr>
+        }
+    </table>
+}

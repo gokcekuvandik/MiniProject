@@ -1,0 +1,106 @@
+﻿@model MiniProject.Web.Models.AlbumViewModel
+
+<div>
+    <h4>Albums</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+</div>
+@using (Html.BeginForm("Display", "Album", FormMethod.Post))
+{
+    @Html.Hidden("SelectedPhotoId", Model.SelectedPhotoId)
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.DropDownListFor(x => x.SelectedAlbumId, new SelectList(Model.Albums, "Id", "Title"), "-- Select an Album --")
+            </div>
+            <div class="col-md-2">
+                <input type="submit" value="View Album" class="btn btn-info"  onclick="Reset();"/>
+            </div>
+        </div>
+        <br />
+        @if (Model.SelectedAlbum != null)
+        {
+            <div class="row">
+                <div class="col-md-8">
+                    @if (Model.Photos.Any())
+                    {
+                        <div>
+                            <h4>Photos</h4>
+                            <hr />
+                            <dl class="dl-horizontal">
+                            </dl>
+                        </div>
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    Photo
+                                </th>
+                                <th>
+                                    Song
+                                </th>
+                                <th>
+
+                                </th>
+                            </tr>
+                            @foreach (var photo in Model.Photos)
+                            {
+
+                                <tr>
+                                    <td>
+                                        <img src="@Url.Content(photo.ThumbnailUrl)" alt="Image" style="height:30px;width:30px;" />
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => photo.Title)
+                                    </td>
+                                    <td>
+                                        <input type="button" value="View Comments" class="btn btn-info" onclick="SubmitForm(@Model.Photos.FindIndex(x => x.Id == photo.Id),this);" />
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    }
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        @if (Model.Comments.Any())
+                        {
+                            <div>
+                                <h4>Comments</h4>
+                                <hr />
+                                <dl class="dl-horizontal">
+                                </dl>
+                            </div>
+                            <ul>
+                                @foreach (var comment in Model.Comments)
+                                {
+                                    <li>
+                                        @Html.DisplayFor(modelItem => comment.Email)
+                                        <ul>
+                                            <li>@Html.DisplayFor(modelItem => comment.Name)</li>
+                                            <li>@Html.DisplayFor(modelItem => comment.Body)</li>
+                                        </ul>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+<script>
+    function SubmitForm(i, btn) {
+
+        document.getElementById('SelectedPhotoId').value = i;
+        var form = $(btn).closest("form");
+        form.submit();
+    }
+    function Reset() {
+
+        document.getElementById('SelectedPhotoId').value = -1;
+        var form = $(btn).closest("form");
+        form.submit();
+    }
+</script>
